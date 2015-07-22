@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css"
+			href="extjs/resources/css/ext-all.css" rel="stylesheet" />
+		<script type="text/javascript" src="extjs/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="extjs/ext-all-debug.js"></script>
+
+		<title>欢迎使用在线填表系统</title>
+		<Script Language="JavaScript"></Script>
+	</head>
+	<body>
+		<script type="text/javascript">
+	Ext.onReady(function() {
+
+			var store = new Ext.data.JsonStore( {
+				root : 'acounts',
+				fields : [ {
+					name : 'acount'
+				}, {
+					name : 'pwd'
+				}, {
+					name : 'owner'
+				}, {
+					name : 'email'
+				}, {
+					name : 'tel'
+				}, {
+					name : 'credate'
+				}, {
+					name : 'sta'
+				}, {
+					name : 'detail'
+				} ]
+			});
+			var grid = new Ext.grid.GridPanel( {
+				title : '账号列表',
+				region : 'center', //放在西边，即左侧  
+				plit : true,
+				width : 200,
+				height : 200,
+				border : false,
+				store : store,
+				columns : [ {
+					id : 'acount',
+					header : '账户名',
+					width : 100,
+					sortable : true,
+					dataIndex : 'acount'
+				}, {
+					header : '持有者',
+					width : 100,
+					sortable : true,
+					dataIndex : 'owner'
+				}, {
+					header : '电话号码',
+					width : 100,
+					sortable : true,
+					dataIndex : 'tel'
+				}, {
+					id : 'cdetail',
+					dataIndex : 'detail',
+					header : '备注'
+				} ]
+			});
+			Ext.Ajax.request({
+				url:'http://localhost/resources/acounts/getbyorgid',
+				params:{orgid:'cassen'},
+				method:'GET',
+				success:function(response,options){
+				alert(response.responseText)
+				grid.store.loadData(Ext.util.JSON.decode(response.responseText));
+				},
+				scopse:this
+			});
+			var win = null;
+			//如果窗口第一次被打开时才创建  
+			if (!win) {
+				win = new Ext.Window( {
+					title : '安排填表任务',
+					closable : true,
+					width : 600,
+					height : 400,
+					border : false,
+					plain : true,
+					layout : 'border',
+					items : [grid]
+				//把上面创建的panel和TabPanel放在window中，并采用border方式布局  
+						});
+			}
+			win.show();
+		});
+</script>
+	</body>
+</html>

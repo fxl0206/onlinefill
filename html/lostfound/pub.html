@@ -1,0 +1,97 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css"
+			href="extjs/resources/css/ext-all.css" rel="stylesheet" />
+		<script type="text/javascript" src="extjs/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="extjs/ext-all-debug.js"></script>
+
+		<title>欢迎使用在线填表系统</title>
+		<Script Language="JavaScript"></Script>
+	</head>
+	<body>
+		<script type="text/javascript">
+	Ext.onReady(function() {
+		var store = new Ext.data.JsonStore( {
+			autoLoad : true,
+			url : 'http://localhost/resources/acounts/getbyorgid?orgid=cassen',
+			root : 'acounts',
+			fields : [ {
+				name : 'acount'
+			}, {
+				name : 'pwd'
+			}, {
+				name : 'owner'
+			}, {
+				name : 'email'
+			}, {
+				name : 'tel'
+			}, {
+				name : 'credate'
+			}, {
+				name : 'sta'
+			}, {
+				name : 'detail'
+			} ]
+		});
+		var grid = new Ext.grid.GridPanel( {
+			title : '账号列表',
+			store : store,
+			columns : [ {
+				id : 'acount',
+				header : '账户名',
+				width : 100,
+				sortable : true,
+				dataIndex : 'acount'
+			}, {
+				header : '密码',
+				width : 100,
+				sortable : true,
+				dataIndex : 'pwd'
+			}, {
+				header : '持有者',
+				width : 100,
+				sortable : true,
+				dataIndex : 'owner'
+			}, {
+				header : '联系邮箱',
+				width : 100,
+				sortable : true,
+				dataIndex : 'email'
+			}, {
+				header : '电话号码',
+				width : 100,
+				sortable : true,
+				dataIndex : 'tel'
+			}, {
+				header : '创建日期',
+				width : 100,
+				sortable : true,
+				dataIndex : 'credate'
+			}, {
+				xtype : 'booleancolumn',
+				header : '激活状态',
+				width : 100,
+				sortable : true,
+				dataIndex : 'sta',
+				trueText : 'Yes',
+				falseText : 'No'
+			}, {
+				id : 'cdetail',
+				dataIndex : 'detail',
+				header : '备注'
+			} ]
+		});
+		var win = new Ext.Window( {
+			title : "测试",
+			width : 600,
+			height : 400,
+			maximizable : true,
+			plain : true,
+			items : [grid]
+		});
+		win.show();
+	});
+</script>
+	</body>
+</html>

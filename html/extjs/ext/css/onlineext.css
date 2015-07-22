@@ -1,0 +1,33 @@
+.orgadd{
+        background: url(../images/orgadd.gif) left top no-repeat !important;
+}
+.orgedit{
+        background: url(../images/orgedit.gif) left top no-repeat !important;
+}
+.orgdelete{
+        background: url(../images/orgdelete.png) left top no-repeat !important;
+}
+.acountadd{
+        background: url(../images/acountadd.png) left top no-repeat !important;
+}
+.acountdelete{
+        background: url(../images/acountdelete.png) left top no-repeat !important;
+}
+.acounttemplate{
+        background: url(../images/acounttemplate.png) left top no-repeat !important;
+}
+.acountbat{
+        background: url(../images/acountbat.png) left top no-repeat !important;
+}
+.tableadd{
+        background: url(../images/tableadd.gif) left top no-repeat !important;
+}
+.tabledelete{
+        background: url(../images/tabledelete.gif) left top no-repeat !important;
+}
+.dealadd{
+        background: url(../images/dealadd.gif) left top no-repeat !important;
+}
+.worddelete{
+        background: url(../images/worddelete.gif) left top no-repeat !important;
+}

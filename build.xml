@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="onlinefill">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../AppData/Local/Genuitec/MyEclipse 8.5"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.5"/>
+    <property name="source" value="1.5"/>
+    <path id="Java EE 5 Libraries.libraryclasspath">
+        <pathelement location="../../../AppData/Local/Genuitec/Common/plugins/com.genuitec.eclipse.j2eedt.core_8.5.0.me201003231033/data/libraryset/EE_5/javaee.jar"/>
+        <pathelement location="../../../AppData/Local/Genuitec/Common/plugins/com.genuitec.eclipse.j2eedt.core_8.5.0.me201003231033/data/libraryset/EE_5/jsf-impl.jar"/>
+        <pathelement location="../../../AppData/Local/Genuitec/Common/plugins/com.genuitec.eclipse.j2eedt.core_8.5.0.me201003231033/data/libraryset/EE_5/jsf-api.jar"/>
+        <pathelement location="../../../AppData/Local/Genuitec/Common/plugins/com.genuitec.eclipse.j2eedt.core_8.5.0.me201003231033/data/libraryset/EE_5/jstl-1.2.jar"/>
+    </path>
+    <path id="JUnit 4.libraryclasspath">
+        <pathelement location="../../../AppData/Local/Genuitec/Common/plugins/org.junit4_4.5.0.v20090824/junit.jar"/>
+        <pathelement location="../../../AppData/Local/Genuitec/Common/plugins/org.hamcrest.core_1.1.0.v20090501071000.jar"/>
+    </path>
+    <path id="onlinefill.classpath">
+        <pathelement location="WebRoot/WEB-INF/classes"/>
+        <path refid="Java EE 5 Libraries.libraryclasspath"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+        <pathelement location="D:/poi-3.6/poi-3.6-20091214.jar"/>
+        <pathelement location="D:/poi-3.6/poi-contrib-3.6-20091214.jar"/>
+        <pathelement location="D:/poi-3.6/poi-examples-3.6-20091214.jar"/>
+        <pathelement location="D:/poi-3.6/poi-ooxml-3.6-20091214.jar"/>
+        <pathelement location="D:/poi-3.6/poi-ooxml-schemas-3.6-20091214.jar"/>
+        <pathelement location="D:/poi-3.6/poi-scratchpad-3.6-20091214.jar"/>
+        <pathelement location="D:/poi-3.6/ooxml-lib/xmlbeans-2.3.0.jar"/>
+        <pathelement location="D:/poi-3.6/ooxml-lib/geronimo-stax-api_1.0_spec-1.0.jar"/>
+        <pathelement location="D:/lib/antlr-2.7.6.jar"/>
+        <pathelement location="D:/lib/asm-3.1.jar"/>
+        <pathelement location="D:/lib/asm-attrs.jar"/>
+        <pathelement location="D:/lib/aspectjweaver.jar"/>
+        <pathelement location="D:/lib/cglib-nodep-2.1_3.jar"/>
+        <pathelement location="D:/lib/commons-beanutils.jar"/>
+        <pathelement location="D:/lib/commons-collections-3.2.jar"/>
+        <pathelement location="D:/lib/commons-dbcp-1.2.1.jar"/>
+        <pathelement location="D:/lib/commons-lang.jar"/>
+        <pathelement location="D:/lib/commons-logging-1.0.4.jar"/>
+        <pathelement location="D:/lib/commons-pool-1.2.jar"/>
+        <pathelement location="D:/lib/dom4j-1.6.1.jar"/>
+        <pathelement location="D:/lib/ehcache-1.2.3.jar"/>
+        <pathelement location="D:/lib/ejb3-persistence.jar"/>
+        <pathelement location="D:/lib/ezmorph-1.0.4.jar"/>
+        <pathelement location="D:/lib/hibernate3.jar"/>
+        <pathelement location="D:/lib/hibernate-annotations.jar"/>
+        <pathelement location="D:/lib/hibernate-entitymanager.jar"/>
+        <pathelement location="D:/lib/javassist.jar"/>
+        <pathelement location="D:/lib/jboss-common.jar"/>
+        <pathelement location="D:/lib/jersey-bundle-1.0.2.jar"/>
+        <pathelement location="D:/lib/jersey-spring-1.0.1.jar"/>
+        <pathelement location="D:/lib/jettison-1.0.1.jar"/>
+        <pathelement location="D:/lib/json-lib-2.2.2-jdk15.jar"/>
+        <pathelement location="D:/lib/jsr311-api-1.0.jar"/>
+        <pathelement location="D:/lib/jta.jar"/>
+        <pathelement location="D:/lib/log4j-1.2.11.jar"/>
+        <pathelement location="D:/lib/mysql-connector-java-5.0.0-beta-bin.jar"/>
+        <pathelement location="D:/lib/spring.jar"/>
+        <pathelement location="D:/lib/spring-hibernate3.jar"/>
+    </path>
+    <path id="run.Excel0307 (1).bootclasspath">
+        <fileset dir="${java.home}/lib" includes="*.jar"/>
+        <fileset dir="${java.home}/lib/ext" includes="*.jar"/>
+        <path refid="Java EE 5 Libraries.libraryclasspath"/>
+    </path>
+    <path id="run.Excel0307.bootclasspath">
+        <fileset dir="${java.home}/lib" includes="*.jar"/>
+        <fileset dir="${java.home}/lib/ext" includes="*.jar"/>
+        <path refid="Java EE 5 Libraries.libraryclasspath"/>
+    </path>
+    <path id="run.ExcelTest.bootclasspath">
+        <fileset dir="${java.home}/lib" includes="*.jar"/>
+        <fileset dir="${java.home}/lib/ext" includes="*.jar"/>
+        <path refid="Java EE 5 Libraries.libraryclasspath"/>
+    </path>
+    <path id="run.OrganizeDAOTest (1).bootclasspath">
+        <fileset dir="${java.home}/lib" includes="*.jar"/>
+        <fileset dir="${java.home}/lib/ext" includes="*.jar"/>
+        <path refid="Java EE 5 Libraries.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="WebRoot/WEB-INF/classes"/>
+        <copy includeemptydirs="false" todir="WebRoot/WEB-INF/classes">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="WebRoot/WEB-INF/classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="WebRoot/WEB-INF/classes" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="onlinefill.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="Excel0307 (1)">
+        <java classname="Junit4.test.Excel0307" failonerror="true" fork="yes">
+            <classpath refid="onlinefill.classpath"/>
+            <bootclasspath>
+                <path refid="run.Excel0307 (1).bootclasspath"/>
+            </bootclasspath>
+        </java>
+    </target>
+    <target name="Excel0307">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="Junit4.test.Excel0307" todir="${junit.output.dir}"/>
+            <classpath refid="onlinefill.classpath"/>
+            <bootclasspath>
+                <path refid="run.Excel0307.bootclasspath"/>
+            </bootclasspath>
+        </junit>
+    </target>
+    <target name="ExcelTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="Junit4.test.ExcelTest" todir="${junit.output.dir}"/>
+            <classpath refid="onlinefill.classpath"/>
+            <bootclasspath>
+                <path refid="run.ExcelTest.bootclasspath"/>
+            </bootclasspath>
+        </junit>
+    </target>
+    <target name="OrganizeDAOTest (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="Junit4.test.OrganizeDAOTest" todir="${junit.output.dir}"/>
+            <classpath refid="onlinefill.classpath"/>
+            <bootclasspath>
+                <path refid="run.OrganizeDAOTest (1).bootclasspath"/>
+            </bootclasspath>
+        </junit>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
+</project>

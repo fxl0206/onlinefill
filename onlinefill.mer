@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ERDiagram version="1.1">
+  <Connection session="MYSQL" database="onlinefill" />
+  <Drawing gridVisible="false" snapOn="false" fastRouting="false" labelsVisible="true" />
+  <Tables>
+    <Table name="402881e430a07a3c0130a07a3cdb0000">
+      <Drawing expanded="true" location="233,254" dimensions="276,110" />
+      <Columns>
+        <Column name="rowid" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="32" />
+        </Column>
+        <Column name="acname" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="255" />
+        </Column>
+        <Column name="ownername" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="255" />
+        </Column>
+        <Column name="col" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="LONGTEXT" size="2147483647" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="acounts">
+      <Drawing expanded="true" location="271,0" dimensions="180,209" />
+      <Columns>
+        <Column name="acorgid" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="32" />
+        </Column>
+        <Column name="acname" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="acpwd" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="acowner" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="acemail" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="acphone" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="accdate" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DATETIME" size="19" />
+        </Column>
+        <Column name="acstatu" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="acdetail" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="VARCHAR" size="4000" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="deals">
+      <Drawing expanded="true" location="0,428" dimensions="168,109" />
+      <Columns>
+        <Column name="deid" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="VARCHAR" size="32" />
+        </Column>
+        <Column name="tadeid" primary_key="false" foreign_key="false" required="true" unique="true">
+          <Data type="VARCHAR" size="32" />
+        </Column>
+        <Column name="destatu" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIT" />
+        </Column>
+        <Column name="acdeid" primary_key="false" foreign_key="false" required="true" unique="true">
+          <Data type="VARCHAR" size="32" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="organize">
+      <Drawing expanded="true" location="213,428" dimensions="164,131" />
+      <Columns>
+        <Column name="orgid" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="VARCHAR" size="32" />
+        </Column>
+        <Column name="text" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="255" />
+        </Column>
+        <Column name="pid" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="32" />
+        </Column>
+        <Column name="leaf" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIT" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="tabledir">
+      <Drawing expanded="true" location="0,254" dimensions="188,129" />
+      <Columns>
+        <Column name="dirid" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="CHAR" size="32" />
+        </Column>
+        <Column name="ownername" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="50" />
+        </Column>
+        <Column name="text" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="255" />
+        </Column>
+        <Column name="pid" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="32" />
+        </Column>
+        <Column name="leaf" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="BIT" />
+        </Column>
+      </Columns>
+    </Table>
+    <Table name="tablelist">
+      <Drawing expanded="true" location="0,0" dimensions="225,263" />
+      <Columns>
+        <Column name="tadirid" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="32" />
+        </Column>
+        <Column name="taid" primary_key="true" foreign_key="false" required="true" unique="true">
+          <Data type="VARCHAR" size="32" />
+        </Column>
+        <Column name="taname" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="1000" />
+        </Column>
+        <Column name="tastdate" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DATETIME" size="19" />
+        </Column>
+        <Column name="taendate" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DATETIME" size="19" />
+        </Column>
+        <Column name="tapubdate" primary_key="false" foreign_key="false" required="false" unique="false">
+          <Data type="DATETIME" size="19" />
+        </Column>
+        <Column name="tafinicount" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="INT UNSIGNED" size="10" />
+        </Column>
+        <Column name="tafrom" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="32" />
+        </Column>
+        <Column name="tatype" primary_key="false" foreign_key="false" required="true" unique="false">
+          <Data type="VARCHAR" size="45" />
+        </Column>
+      </Columns>
+    </Table>
+  </Tables>
+  <Relationships />
+</ERDiagram>
+

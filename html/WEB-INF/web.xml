@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<!--spring配置文件-->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:config.xml</param-value>
+	</context-param>
+	<!--spring监听文件-->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<filter>
+		<filter-name>LogOrNot</filter-name>
+		<filter-class>org.online.filter.LogNotFilter</filter-class>
+	</filter>
+	
+		<filter-mapping> <filter-name>LogOrNot</filter-name>
+		<url-pattern>/resources/*</url-pattern> </filter-mapping>
+	
+	<!--Jersey监听文件-->
+	<servlet>
+		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-class>
+			com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+		<!--Jersey配置参数-->
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>
+                org.online.sources
+			</param-value>
+		</init-param>
+		<!--Jersey其它配置-->
+		<init-param>
+			<param-name>com.sun.jersey.spi.container.ContainerRequestFilters</param-name>
+			<param-value>
+				com.sun.jersey.api.container.filter.LoggingFilter;
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
+			<param-value>
+				com.sun.jersey.api.container.filter.LoggingFilter;
+			</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<!--
+		凡是通过/resources/结构访问的URL都拦截 <servlet> <display-name>JAX-RS REST
+		Servlet</display-name> <servlet-name>JAX-RS REST
+		Servlet</servlet-name> <servlet-class>
+		com.sun.jersey.spi.container.servlet.ServletContainer </servlet-class>
+		<load-on-startup>1</load-on-startup> </servlet> <servlet-mapping>
+		<servlet-name>JAX-RS REST Servlet</servlet-name>
+		<url-pattern>/services/*</url-pattern> </servlet-mapping>
+	-->
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>org.online.servlet.LoginServlet</servlet-class>
+	</servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DownloadServlet</servlet-name>
+    <servlet-class>org.online.servlet.DownloadServlet</servlet-class> 
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>userdownServlet</servlet-name>
+    <servlet-class>org.online.servlet.userdownServlet</servlet-class>
+  </servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>Jersey Web Application</servlet-name>
+		<url-pattern>/resources/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/servlet/login</url-pattern>
+	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownloadServlet</servlet-name>
+    <url-pattern>/servlet/DownloadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>userdownServlet</servlet-name>
+    <url-pattern>/servlet/userdownServlet</url-pattern>
+  </servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

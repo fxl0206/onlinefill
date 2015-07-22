@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+	<bean id="organizeService" class="org.online.services.OrganizeService">
+		<property name="organizeDAO" ref="OrganizeDAO"></property>
+	</bean>
+	<bean id="acountsService" class="org.online.services.AcountsService">
+		<property name="acountsDAO" ref="AcountsDAO"></property>
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="tabledirService" class="org.online.services.TabledirService">
+		<property name="tabledirDAO" ref="TabledirDAO"></property>
+	</bean>
+	<bean id="tablelistService" class="org.online.services.TablelistService">
+		<property name="tablelistDAO" ref="TablelistDAO"></property>
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="dealsService" class="org.online.services.DealsService">
+		<property name="dealsDAO" ref="DealsDAO"></property>
+	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
+		<property name="username" value="fill" />
+		<property name="password" value="fill12345" /> -->
+      <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+      <property name="url" value="jdbc:mysql://123.56.90.92:3306/onlinefill"/>
+      <property name="username" value="onlinefill"/>
+      <property name="password" value="fill12345"/>
+      
+	</bean>
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor">
+	</bean>
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="onlinefillPU" />
+	</bean>
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<!--
+		<bean id="AcountsDAO" class="org.online.dao.AcountsDAO"> <property
+		name="entityManagerFactory" ref="entityManagerFactory" /> </bean>
+		<bean id="DealsDAO" class="org.online.dao.DealsDAO"> <property
+		name="entityManagerFactory" ref="entityManagerFactory" /> </bean>
+		<bean id="TablelistDAO" class="org.online.dao.TablelistDAO"> <property
+		name="entityManagerFactory" ref="entityManagerFactory" /> </bean>
+	-->
+	<bean id="OrganizeDAO" class="org.online.dao.OrganizeDAO">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<bean id="AcountsDAO" class="org.online.dao.AcountsDAO">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<bean id="TabledirDAO" class="org.online.dao.TabledirDAO">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<bean id="TablelistDAO" class="org.online.dao.TablelistDAO">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<bean id="DealsDAO" class="org.online.dao.DealsDAO">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+</beans>

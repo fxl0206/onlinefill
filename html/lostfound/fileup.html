@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>treetest.html</title>
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+		<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+		<link rel="stylesheet" type="text/css"
+			href="extjs/resources/css/ext-all.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="/css/fileuploadfield.css" />
+		<script type="text/javascript" src="extjs/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="extjs/ext-all-debug.js"></script>
+		<script type="text/javascript" src="js/FileUploadField.js"></script>
+	</head>
+
+	<body>
+		<div id="tree-div"></div>
+		<script type="text/javascript">
+	Ext.onReady(function() {
+		var fp = new Ext.FormPanel( {
+			id : 'testform',
+			fileUpload : true,
+			renderTo : 'fi-form',
+			frame : true,
+			title : 'File Upload Form',
+			autoHeight : true,
+			autoWidth : true,
+			bodyStyle : 'padding: 10px 10px 0 10px;',
+			labelWidth : 80,
+			defaults : {
+				anchor : '95%',
+				allowBlank : false,
+				msgTarget : 'side'
+			},
+			items : [ {
+				xtype : 'textfield',
+				name : 'fileName',
+				fieldLabel : '文件名称',
+				value : '测试上传'
+			}, {
+				xtype : 'fileuploadfield',
+				id : 'form-file',
+				emptyText : 'Select an image',
+				fileUpload : true,
+				fieldLabel : '选择图片',
+				name : 'filepath',
+				buttonText : '选择文件'
+			} ],
+			buttons : [ {
+				text : 'Save',
+				handler : function() {
+					if (fp.getForm().isValid()) {
+						//						Ext.Ajax.request( {
+				//							url : 'http://localhost/resources/up/upload',
+				//							method : 'POST',
+				//							form : "testform",
+				//							isUpload : true,
+				//							success : function(response,options) {
+				//								alert("****");
+				//							}
+				//						});
+				fp.getForm().submit( {
+					url : 'http://localhost/resources/up/upload',
+					method : 'POST',
+					waitMsg : '正在上传，请稍候...',
+					success : function(fp, o) {
+						//msg('Success', 'Processed file on the server');
+						alert("ok");
+					},
+					failure:function(){
+					alert("fale");
+					}
+				});
+			}
+		}
+			}, {
+				text : 'Reset',
+				handler : function() {
+					fp.getForm().reset();
+				}
+			} ]
+		});
+	});
+</script>
+		<div id="fi-form"></div>
+	</body>
+</html>

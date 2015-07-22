@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css"
+			href="extjs/resources/css/ext-all.css" rel="stylesheet" />
+					<link rel="stylesheet" type="text/css" href="/css/RowEditor.css" />
+		<script type="text/javascript" src="extjs/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="extjs/ext-all-debug.js"></script>
+		<script type="text/javascript" src="js/RowEditor.js"></script>
+		<title>欢迎使用在线填表系统</title>
+		<Script Language="JavaScript"></Script>
+	</head>
+	<body>
+		<script type="text/javascript">
+	Ext.onReady(function() {
+		Ext.Ajax.request( {
+			url : 'http://localhost/resources/tablelist/gettab',
+			method : 'GET',
+			params : {
+				taid : 'test'
+			},
+			success : function(response, options) {
+
+				var rtjs = Ext.util.JSON.decode(response.responseText);
+				var record=Ext.data.Record.create(rtjs.feilds);
+				var store = new Ext.data.JsonStore( {
+					root : 'rows',
+					fields : rtjs.feilds
+				});
+				var editor = new Ext.ux.grid.RowEditor( {
+							url:"http://localhost/resources/tablelist/edit",
+							saveText : 'Update'
+						});
+				var grid = new Ext.grid.GridPanel( {
+					region : 'center',
+					plugins : [editor],
+					plit : true,
+					border : false,
+					store : store,
+					columns : rtjs.columns,
+					tbar:[
+					{
+						text:'添加一行'
+					}]
+				});
+				grid.store.loadData(rtjs.rows);	
+				//grid.store.insert(0,new record());			
+				var win = null;
+				//如果窗口第一次被打开时才创建  
+			if (!win) {
+				win = new Ext.Window( {
+					title : '此处你可以添加或修改表格内容',
+					closable : true,
+					width : 800,
+					height : 600,
+					border : false,
+					plain : true,
+					modal:true,
+				//	maximizable:true,
+					maximized:true,
+					layout : 'border',
+					items : [ grid ]
+				//把上面创建的panel和TabPanel放在window中，并采用border方式布局  
+						});
+			}
+			win.show();
+		}
+		});
+	});
+</script>
+	</body>
+</html>
